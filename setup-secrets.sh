@@ -29,6 +29,7 @@ add_secret () {
 add_secret TICKETMASTER_API_KEY ticketmaster-api-key "Ticketmaster Consumer Key"
 add_secret SEATGEEK_CLIENT_ID   seatgeek-client-id   "SeatGeek Client ID"
 add_secret PREDICTHQ_TOKEN      predicthq-token      "PredictHQ Access Token"
+add_secret SERPAPI_KEY          serpapi-key          "SerpApi API Key"
 
 if [ ${#MAPPINGS[@]} -eq 0 ]; then echo "No keys entered; nothing changed."; exit 0; fi
 
