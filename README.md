@@ -129,8 +129,8 @@ This is a two-person INFO 520 group project. Both team members contribute to dev
 - [x] Public website tested successfully.
 - [x] Backend API tested successfully.
 - [x] Event search tested successfully.
-- [ ] External API keys configured (optional).
-- [ ] Load balancer configuration (optional).
-- [ ] Final project presentation.
+- [x] External API keys configured (optional).
+- [x] Load balancer configuration (optional).
+- [x] Final project presentation.
 
 https://city-events-finder-pdfaliiqoa-ue.a.run.app
