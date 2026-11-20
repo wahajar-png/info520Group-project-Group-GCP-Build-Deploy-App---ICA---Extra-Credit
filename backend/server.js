@@ -6,12 +6,13 @@ const cors = require("cors");
 const ticketmaster = require("./ticketmaster");
 const seatgeek = require("./seatgeek");
 const predicthq = require("./predicthq");
+const serpapi = require("./serpapi");
 const mock = require("./mock");
 const { combineEvents } = require("./merge");
 
 const app = express();
 const PORT = process.env.PORT || 8080; // Cloud Run sets PORT
-const providers = [ticketmaster, seatgeek, predicthq];
+const providers = [ticketmaster, seatgeek, predicthq, serpapi];
 
 app.use(cors());
 

@@ -1,6 +1,6 @@
 # Backend: Event Finder API (Node.js + Express)
 
-Combines events from **Ticketmaster**, **SeatGeek** and **PredictHQ**, removes duplicates, sorts them by date, and returns them in the format the frontend expects.
+Combines events from **PredictHQ**, **SerpApi (Google Events)**, **SeatGeek** and **Ticketmaster**, removes duplicates, sorts them by date, and returns them in the format the frontend expects.
 
 ## API
 
@@ -52,6 +52,7 @@ With real data:
 export TICKETMASTER_API_KEY=...
 export SEATGEEK_CLIENT_ID=...
 export PREDICTHQ_TOKEN=...
+export SERPAPI_KEY=...
 npm start
 ```
 

@@ -26,3 +26,12 @@ test("formats dates the way the frontend expects", () => {
   assert.strictEqual(toLocalIso("2026-12-15T19:00:00Z"), "2026-12-15T19:00:00");
   assert.strictEqual(toLocalIso("2026-12-15T19:00"), "2026-12-15T19:00:00");
 });
+
+const { parseGoogleDate } = require("./serpapi");
+test("parses Google Events dates", () => {
+  const now = new Date("2026-11-19T12:00:00");
+  assert.strictEqual(parseGoogleDate("Nov 20", "Thu, Nov 20, 7 \u2013 10 PM", now), "2026-11-20T19:00:00");
+  assert.strictEqual(parseGoogleDate("Dec 5", "Fri, Dec 5, 8:30 PM \u2013 Sat, Dec 6, 1 AM", now), "2026-12-05T20:30:00");
+  assert.strictEqual(parseGoogleDate("Jan 3", "Sat, Jan 3, 11 AM \u2013 2 PM", now), "2027-01-03T11:00:00");
+  assert.strictEqual(parseGoogleDate("Nov 22", "Sat, Nov 22", now), "2026-11-22T00:00:00");
+});
