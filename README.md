@@ -6,72 +6,117 @@
 
 City Events Finder is a web application that helps users find upcoming events in a city. Users can enter a city name and view events such as concerts, sports games, festivals, and other local activities.
 
-The goal is to collect event information from multiple data sources and display everything in one organized list.
+The application collects event information from multiple sources, combines the results, removes duplicates, and sorts events by date.
 
 ## Frontend
 
 The frontend was developed using:
 
 - HTML – Creates the website structure.
-- CSS – Controls the website design and layout.
-- JavaScript – Handles the city search and displays event results.
+- CSS – Controls the design and layout.
+- JavaScript – Handles city searches and displays event results.
 
 ### Frontend Features
 
 - City search bar.
 - Search button.
 - Upcoming events section.
-- Event names, dates, venues, and information links.
+- Event names, dates, and venues.
+- Links to event information.
 - Responsive design for desktop and mobile devices.
 
 ## Backend
 
-The backend will handle the event searches and connect to three external data sources.
+The backend was developed using Node.js and Express.
 
-It will combine the event information, remove duplicates, and sort events by date.
+It handles event searches and combines information from multiple data sources.
 
-The frontend will communicate with the backend using:
+### Backend Features
 
-`/api/events?city=Richmond`
+- Accepts city searches through an API endpoint.
+- Collects event information from different sources.
+- Removes duplicate events.
+- Sorts events by date.
+- Returns event information in JSON format.
+- Uses mock data when external API keys are not configured.
 
-Expected response format: JSON containing an events list.
+The frontend communicates with the backend using:
+
+`GET /api/events?city=Richmond`
+
+The backend also includes a health check endpoint:
+
+`GET /healthz`
 
 ## Data Sources
 
-The project will use three external data sources.
+The backend includes integrations for:
 
-**Status:** To be confirmed by the backend developer.
+- Ticketmaster
+- SeatGeek
+- PredictHQ
+- SerpApi Google Events
 
-## Running the Application Locally
+The application also supports mock event data for local testing.
+
+External API integrations and API key configuration still need to be verified.
+
+## Local Testing
+
+The application can be tested locally using Node.js.
 
 1. Download or clone the GitHub repository.
 2. Open the project folder in Visual Studio Code.
-3. Open `index.html` using Live Server.
-4. Enter a city into the search bar.
-5. Search functionality will require the backend API to be running.
+3. Open Terminal in the project folder.
+4. Navigate to the backend folder:
 
-## Google Cloud Deployment
+`cd backend`
 
-**Status:** Pending.
+5. Install dependencies:
 
-The application will be containerized using Docker and deployed through Google Cloud Run. The container image will be stored in Artifact Registry.
+`npm install`
 
-API keys will be stored securely using Google Cloud Secret Manager.
+6. Run backend tests:
 
-An external HTTP(S) load balancer will be configured to route traffic to the application.
+`npm test`
+
+7. Start the application with the frontend connected:
+
+`STATIC_DIR=.. npm run dev`
+
+8. Open `http://localhost:8080` in a browser.
+
+## Docker and Google Cloud Deployment
+
+The application includes a Dockerfile for containerizing the frontend and backend.
+
+The planned deployment process uses:
+
+- Docker for containerization.
+- Google Artifact Registry for storing the container image.
+- Google Cloud Run for hosting the application.
+- Google Secret Manager for securely storing API keys.
+- An external HTTP(S) load balancer for routing traffic.
+
+Deployment scripts are included in the repository.
+
+Google Cloud deployment and load balancer configuration are still pending.
 
 ## Team Collaboration
 
-This is a two-person INFO 520 group project. Both team members will contribute to development, testing, troubleshooting, documentation, and the final presentation.
+This is a two-person INFO 520 group project. Both team members contribute to development, testing, troubleshooting, documentation, and the final presentation.
 
 ## Project Status
 
-- [x] Frontend files created.
+- [x] Frontend development.
 - [x] GitHub repository created.
-- [x] Frontend files uploaded to GitHub.
-- [ ] Backend development.
-- [ ] External API integration.
-- [ ] Frontend and backend connection.
-- [ ] Docker and Google Cloud deployment.
+- [x] Backend development.
+- [x] Backend unit tests passed.
+- [x] Local frontend and backend connection.
+- [x] Docker configuration added.
+- [ ] External API keys configured and integrations verified.
+- [ ] Google Cloud deployment.
+- [ ] Artifact Registry configuration.
+- [ ] Secret Manager configuration.
 - [ ] Load balancer configuration.
-- [ ] Final testing and presentation.
+- [ ] Final cloud testing and presentation.
