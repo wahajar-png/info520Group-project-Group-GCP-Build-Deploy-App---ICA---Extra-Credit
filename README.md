@@ -6,7 +6,7 @@
 
 City Events Finder is a web application that helps users find upcoming events in a city. Users can enter a city name and view events such as concerts, sports games, festivals, and other local activities.
 
-The application collects event information from multiple sources, combines the results, removes duplicates, and sorts events by date.
+The application uses a Node.js backend to handle event searches, process event information, remove duplicates, and sort events by date. It also supports mock event data when external API keys are not configured.
 
 ## Frontend
 
@@ -29,12 +29,12 @@ The frontend was developed using:
 
 The backend was developed using Node.js and Express.
 
-It handles event searches and combines information from multiple data sources.
+It handles event searches and processes information from different data sources.
 
 ### Backend Features
 
 - Accepts city searches through an API endpoint.
-- Collects event information from different sources.
+- Supports multiple event data providers.
 - Removes duplicate events.
 - Sorts events by date.
 - Returns event information in JSON format.
@@ -44,7 +44,7 @@ The frontend communicates with the backend using:
 
 `GET /api/events?city=Richmond`
 
-The backend also includes a health check endpoint:
+The backend also includes a health check endpoint in its source code:
 
 `GET /healthz`
 
@@ -57,9 +57,9 @@ The backend includes integrations for:
 - PredictHQ
 - SerpApi Google Events
 
-The application also supports mock event data for local testing.
+The application also supports mock event data for testing and demonstration.
 
-External API integrations and API key configuration still need to be verified.
+Currently, external API keys are not configured. The deployed application uses the mock data fallback to provide event results.
 
 ## Local Testing
 
@@ -88,19 +88,28 @@ The application can be tested locally using Node.js.
 
 ## Docker and Google Cloud Deployment
 
-The application includes a Dockerfile for containerizing the frontend and backend.
+The application was containerized using Docker and deployed to Google Cloud.
 
-The planned deployment process uses:
+The deployment uses:
 
 - Docker for containerization.
-- Google Artifact Registry for storing the container image.
-- Google Cloud Run for hosting the application.
-- Google Secret Manager for securely storing API keys.
-- An external HTTP(S) load balancer for routing traffic.
+- Google Cloud Build to build the Docker image.
+- Google Artifact Registry to store the container image.
+- Google Cloud Run to host the application.
 
-Deployment scripts are included in the repository.
+### Deployment Details
 
-Google Cloud deployment and load balancer configuration are still pending.
+- Google Cloud Project: `city-events-finder-515300`
+- Region: `us-east1`
+- Cloud Run Service: `city-events-finder`
+- Container Registry: `city-events-repo`
+- Deployed Image: `city-events-finder:v2`
+
+### Live Application
+
+[City Events Finder – Google Cloud Run](https://city-events-finder-pdfaliiqoa-ue.a.run.app)
+
+The deployed application has been tested successfully. The homepage loads, users can search for events, and the backend returns event information.
 
 ## Team Collaboration
 
@@ -114,9 +123,12 @@ This is a two-person INFO 520 group project. Both team members contribute to dev
 - [x] Backend unit tests passed.
 - [x] Local frontend and backend connection.
 - [x] Docker configuration added.
-- [ ] External API keys configured and integrations verified.
-- [ ] Google Cloud deployment.
-- [ ] Artifact Registry configuration.
-- [ ] Secret Manager configuration.
-- [ ] Load balancer configuration.
-- [ ] Final cloud testing and presentation.
+- [x] Google Cloud Build completed.
+- [x] Artifact Registry configured.
+- [x] Google Cloud Run deployment completed.
+- [x] Public website tested successfully.
+- [x] Backend API tested successfully.
+- [x] Event search tested successfully.
+- [ ] External API keys configured (optional).
+- [ ] Load balancer configuration (optional).
+- [ ] Final project presentation.
