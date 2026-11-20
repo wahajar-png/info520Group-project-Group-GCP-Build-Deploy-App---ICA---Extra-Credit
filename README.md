@@ -132,3 +132,5 @@ This is a two-person INFO 520 group project. Both team members contribute to dev
 - [ ] External API keys configured (optional).
 - [ ] Load balancer configuration (optional).
 - [ ] Final project presentation.
+
+https://city-events-finder-pdfaliiqoa-ue.a.run.app
