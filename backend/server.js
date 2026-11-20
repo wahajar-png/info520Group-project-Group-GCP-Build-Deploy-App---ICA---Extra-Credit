@@ -3,11 +3,11 @@ const fs = require("fs");
 const express = require("express");
 const cors = require("cors");
 
-const ticketmaster = require("./providers/ticketmaster");
-const seatgeek = require("./providers/seatgeek");
-const predicthq = require("./providers/predicthq");
-const mock = require("./providers/mock");
-const { combineEvents } = require("./lib/merge");
+const ticketmaster = require("./ticketmaster");
+const seatgeek = require("./seatgeek");
+const predicthq = require("./predicthq");
+const mock = require("./mock");
+const { combineEvents } = require("./merge");
 
 const app = express();
 const PORT = process.env.PORT || 8080; // Cloud Run sets PORT
